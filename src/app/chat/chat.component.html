@@ -1,0 +1,44 @@
+<main role="main" class="container h-75 bg-dark">
+  <div class="row h-100">
+
+    <div [hidden]="!this.cs.showusers" class="users col-sm-2">
+      <div>
+        <h4 class="text-light">public</h4>
+        <ul class="text-light">
+          <li>
+            faketestuser1
+          </li>
+          <li>
+            faketestuser2
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content flex-fill h-100">
+
+
+      <div class="list-group-item bg-light" *ngFor="let message of this.cs.messages | async">
+        <p>
+          {{" [ "}}{{message.createdAt.toDate() | date:'shortTime' }}{{ " ] " +  message.user + ": " + message.content }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="messagebar rounded-bottom bg-dark w-100">
+      <form #messageForm="ngForm" (ngSubmit)="submit(message)" autocomplete="off">
+        <div class="form-row justify-content-center">
+          <div class="col-md-7">
+            <input type="text" class="form-control" name="message" ngModel #message="ngModel" required
+              placeholder="Enter message..." minlength="1">
+          </div>
+          <div>
+            <button class="btn btn-secondary col-md-auto">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>
