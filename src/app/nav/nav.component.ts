@@ -10,7 +10,7 @@ import { ChatService } from '../services/chat.service';
 export class NavComponent  {
 
 
-  constructor(private auth: AuthService, private cs: ChatService) { }
+  constructor(public auth: AuthService, private cs: ChatService) { }
 
 
 

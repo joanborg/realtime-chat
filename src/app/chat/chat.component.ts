@@ -23,7 +23,7 @@ export interface Item {
 export class ChatComponent implements AfterViewChecked {
 
 
-  constructor(private cs: ChatService) { }
+  constructor(public cs: ChatService) { }
 
 
   // Scrolling down the content to find most recent messages
