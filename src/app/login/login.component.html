@@ -1,58 +1,36 @@
 <div class="login-form bg-dark text-light">
-<<<<<<< HEAD
- 
+
   <form [formGroup]="loginForm">
 
-      <h3 class="text-center">Login</h3>
-   
-=======
-  <form [formGroup]="loginForm">
->>>>>>> 1c253b0bee73ede05c6d9a9c8c7b9d94cc61680f
+    <h3 class="text-center">Login</h3>
+
     <div class="form-group">
       <label>Email address</label>
       <input type="email" formControlName="email" class="form-control" required>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 1c253b0bee73ede05c6d9a9c8c7b9d94cc61680f
     <div class="form-group">
       <label>Password</label>
       <input type="password" class="form-control" formControlName="password" required>
       <label class="error">{{errorMessage}}</label>
       <label class="success">{{successMessage}}</label>
     </div>
-<<<<<<< HEAD
+
 
     <div class="form-group">
       <button type="submit" (click)="emailLogin(loginForm.value)" class="btn btn-primary btn-block">Login</button>
-    </div>
-    
-    <div>
-      <span class="span-or">or</span>
-    </div>
 
-    <div class="google-login">
-      <button (click)="googleLogin()" class="btn btn-primary btn-block">Log in with Google</button>
-    </div>
+      <div>
+        <span class="span-or">or</span>
+      </div>
 
-    <div class="form-group">
-      <p class="text-center">Don't have an account? <a routerLink="/signup" id="signup">Sign up here!</a></p>
-    </div>
+      <div class="google-login">
+        <button (click)="googleLogin()" class="btn btn-primary btn-block">Log in with Google</button>
+      </div>
 
-=======
-    <div class="form-group">
-      <button type="submit" (click)="emailLogin(loginForm.value)" class="btn btn-primary btn-block">Login</button>
+      <div class="form-group">
+        <p class="text-center">Don't have an account? <a routerLink="/signup" id="signup">Sign up here!</a></p>
+      </div>
     </div>
-    <div>
-      <span class="span-or">or</span>
-    </div>
-    <div class="google-login">
-      <button (click)="googleLogin()" class="btn btn-primary btn-block">Log in with Google</button>
-    </div>
-    <div class="form-group">
-      <p class="text-center">Don't have an account? <a href="/signup" id="signup">Sign up here!</a></p>
-    </div>
->>>>>>> 1c253b0bee73ede05c6d9a9c8c7b9d94cc61680f
-  </form>
+    </form>
+
 </div>

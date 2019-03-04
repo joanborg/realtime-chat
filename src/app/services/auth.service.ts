@@ -26,7 +26,7 @@ export class AuthService {
 
   }
 
-  // redirects to chat if google login is succesful
+  // redirects to chat if google login is successful
   googleLogin() {
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     this.afAuth.auth.onAuthStateChanged(res => {
