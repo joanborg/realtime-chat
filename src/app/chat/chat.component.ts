@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../services/auth.service';
@@ -11,7 +11,6 @@ export interface Item {
    content?: string;
    user?: string;
    createdAt: Date; 
-   userStatus?: boolean;
 }
 
 
@@ -21,18 +20,15 @@ export interface Item {
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements AfterViewChecked {
 
 
-  constructor(public cs: ChatService, private afs: AngularFirestore, private auth: AuthService) { }
-
-  ngOnInit() {}
+  constructor(private cs: ChatService) { }
 
 
   // Scrolling down the content to find most recent messages
-  // TODO: fix selector
   ngAfterViewChecked() {
-    var el = document.querySelector('body > app-root > div > app-chat > main > div > div.content.flex-fill.h-100');
+    var el = document.querySelector("#chatview");
     el.scrollTo(0, el.scrollHeight);
   }
 

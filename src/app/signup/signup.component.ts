@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
 
   signupForm = new FormGroup({
     email: new FormControl(),
@@ -21,8 +21,7 @@ export class SignupComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
 
-  ngOnInit() {
-  }
+ 
 
 
   // attempts registering a new account.
@@ -31,7 +30,6 @@ export class SignupComponent implements OnInit {
   trySignup(value) {
     this.auth.doSignup(value)
       .then(res => {
-        console.log(res);
         this.errorMessage = "";
         this.successMessage = "Your account has been created";
         this.auth.updateDisplayName(value);

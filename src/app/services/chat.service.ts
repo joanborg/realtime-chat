@@ -20,20 +20,19 @@ export class ChatService {
 
   // creates reference to database's messages collection
   // valueChanges() listens for new messages to be rendered
-  constructor(private afs: AngularFirestore, public auth: AuthService) {
+  constructor(private afs: AngularFirestore, private auth: AuthService) {
     this.messagesCollection = afs.collection<Item>('chat', ref => ref.orderBy('createdAt'));
     this.messages = this.messagesCollection.valueChanges();
   }
 
 
 
-  // Adds a new message, its sender and creation time to the database collection
-  sendMessage(_content?: string, _userStatus?: boolean) {
+  // Adds a new message, its sender and creation time to the messages collection
+  sendMessage(_content: string) {
     const _createdAt = new Date();
-    
 
     this.auth.user$.subscribe(res => {
-      this.messagesCollection.add({ content: _content, user: res.displayName, createdAt: _createdAt, userStatus: _userStatus });
+      this.messagesCollection.add({ content: _content, user: res.displayName, createdAt: _createdAt });
     })
 
 
